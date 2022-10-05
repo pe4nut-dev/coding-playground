@@ -1,0 +1,21 @@
+version: '3'
+services:
+  playground-app:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: playground-app
+    ports:
+      - "8081:8081"
+    volumes:
+      - ./backend:/usr/src/app
+
+  playground-ui:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: playground-ui
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./frontend:/usr/src/app
